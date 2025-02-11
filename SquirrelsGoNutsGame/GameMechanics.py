@@ -2,6 +2,7 @@
 import np
 import pygame
 
+
 class SquirrelPieces():
     def __init__(self, color, shape, size, flower):
         self.color = color
@@ -36,12 +37,11 @@ class SquirrelsGoNuts():
 
     acornPieces = ["a", "a", "a", "a" "a"]  # 5 pieces total --> placed in board's "o"
 
-    def __init__(self):
-        # game begins by placing pieces of board based on challenge packet
-
-        """ squirrel pieces have the ability to slide across the puzzle (what are all the possible ways a piece can slide
+    def __init__(self, challengePosition):
+        """ game begins by placing pieces of board based on challenge packet squirrel pieces have the ability to slide across the puzzle (what are all the possible ways a piece can slide
        this game is a dead end game, you do have the ability to reach a point where there is no possible solution (how do you
        determine when there are no other possible moves?) """
+        self.challengePosition = challengePosition
 
     # how do you determine whether a move is valid?
     def is_Valid(self):
