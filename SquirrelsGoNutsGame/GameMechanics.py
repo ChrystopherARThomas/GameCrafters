@@ -2,6 +2,10 @@
 import np
 import pygame
 
+""" Game Rules: Place puzzle pieces on board as indicated via booklet 
+Nuts get placed in front of squirrels when game starts; once flower pieces have been set
+they can't be moved (yay!) 
+squirrels can move horizontally or vertically; also have one hole per acorn"""
 
 class SquirrelPieces():
     def __init__(self, color, shape, size, flower):
@@ -9,6 +13,7 @@ class SquirrelPieces():
         self.shape = shape
         self.size = size
         self.flower = flower
+        self.acorn
 
     def has_Flower(self):
         return not self.flower == None
@@ -38,10 +43,12 @@ class SquirrelsGoNuts():
     acornPieces = ["a", "a", "a", "a" "a"]  # 5 pieces total --> placed in board's "o"
 
     def __init__(self, challengePosition):
-        """ game begins by placing pieces of board based on challenge packet squirrel pieces have the ability to slide across the puzzle (what are all the possible ways a piece can slide
-       this game is a dead end game, you do have the ability to reach a point where there is no possible solution (how do you
-       determine when there are no other possible moves?) """
+        """ if the challenge position determines how many squirrels you'll have, how can I represent
+        that diagram in code? """
         self.challengePosition = challengePosition
+        SquirrelsGoNuts.whiteSquirrel.acorn = SquirrelsGoNuts.acornPieces[0]
+
+
 
     # how do you determine whether a move is valid?
     def is_Valid(self):
