@@ -44,16 +44,25 @@ class SquirrelsGoNuts():
     acornPieces = ["a", "a", "a", "a" "a"]  # 5 pieces total --> placed in board's "o"
 
     # maps integer (difficulty level) to squirrel coordinates
-    challengePositions = { 1: (1, )
+    challengePositions = {}
+    for i in range(61):
+        challengePositions[i] = None
 
-    }
+    # adding all of the starting positions to challengePositions map
+    for i in range(61):
+        challengePositions(i)
+
+    def challengePositionsAdd(self, key):
+        SquirrelsGoNuts.challengePositions.get(key)
 
 
     def __init__(self, difficultyLevel):
         """ if the challenge position determines how many squirrels you'll have, how can I represent
         that diagram in code? """
         SquirrelsGoNuts.whiteSquirrel.acorn = SquirrelsGoNuts.acornPieces[0]
-        self.difficultyLevel = difficultyLevel
+
+        # placement of game pieces dependent on boardSetUp
+        boardSetUp = SquirrelsGoNuts.challengePositions.get(difficultyLevel)
 
 
 
