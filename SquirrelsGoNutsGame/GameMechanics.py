@@ -1,5 +1,4 @@
 # Implementing SquirrelsGoNuts
-import np
 import pygame
 
 """ Game Rules: Place puzzle pieces on board as indicated via booklet 
@@ -13,16 +12,38 @@ class SquirrelPieces():
         self.shape = shape
         self.size = size
         self.flower = flower
-        self.acorn
+
+        self.shape = self.shapeCoordinates(shape)
 
     def has_Flower(self):
         return not self.flower == None
+
+    """ need to set up coordinates squirrel will be placed based on 
+    squirrel's shape instance attribute"""
+
+    def shapeCoordinates(self, shape):
+        if shape == "L":
+            self.shape = ([(0, 0), (0, 1), (1, 0)],
+                           [(0, 0), (1, 0), (1, -1)],
+                           [(0, 0), (0, -1), (-1, 0)],
+                           [(0, 0), (-1, 0), (-1, 1)])
+
+        elif shape == "rectangle":
+            self.shape = [
+                [(0, 0), (1, 0), (2, 0)],  # Vertical
+                [(0, 0), (0, 1), (0, 2)]   # Horizontal
+            ]
+
+        else:
+            # you're not funny don't break my game mf
+            raise TypeError
+
+        return self.shape
 
 
 class FlowerPieces():
     def __init__(self, color):
         self.color = color
-
 
 
 class SquirrelsGoNuts():
@@ -33,6 +54,7 @@ class SquirrelsGoNuts():
         ["x", "o", "x", "x"],
         ["x", "x", "x", "o"]
     ]
+
     # squirrel game pieces --> pieces can move horizontally or vertically
     whiteSquirrel = SquirrelPieces("white", "rectangle", 2, False)  # size 2; hole at the very end
     blondSquirrel = SquirrelPieces("blond", "L", 4, True)  # size 4 in an L shape; flower at the end
@@ -48,12 +70,20 @@ class SquirrelsGoNuts():
     for i in range(61):
         challengePositions[i] = None
 
-    # adding all of the starting positions to challengePositions map
-    for i in range(61):
-        challengePositions(i)
 
-    def challengePositionsAdd(self, key):
-        SquirrelsGoNuts.challengePositions.get(key)
+    """ when I place pieces on the board, move them around, would it be better to make a copy of the
+    board each time, rather than mutating the board itself here? How would I implement something
+    like that for this game"""
+    # setting pieces on the board (testing with white squirrel)
+    for coords in whiteSquirrel.shape:
+        for xy in coords:
+            xcoord = xy[0]
+            ycoord = xy[1]
+            if board[xcoord][ycoord] != "o":
+                board[xcoord][ycoord] = "W"
+    print(board)
+
+
 
 
     def __init__(self, difficultyLevel):
@@ -61,19 +91,12 @@ class SquirrelsGoNuts():
         that diagram in code? """
         SquirrelsGoNuts.whiteSquirrel.acorn = SquirrelsGoNuts.acornPieces[0]
 
-        # placement of game pieces dependent on boardSetUp
+        # placement of game pieces dependent on boardSetUp tuple
         boardSetUp = SquirrelsGoNuts.challengePositions.get(difficultyLevel)
-
-
-
-    # how do you determine whether a move is valid?
-    def is_Valid(self):
-        return
 
     # how can you generate all possible moves?
     def generateAllMoves(self):
         return
 
-    # what constitutes a solution?
-    def is_Solution(self):
+    def doMove(self):
         return
