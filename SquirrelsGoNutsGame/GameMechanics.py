@@ -1,4 +1,6 @@
 # Implementing SquirrelsGoNuts
+import copy
+
 import pygame
 
 """ Game Rules: Place puzzle pieces on board as indicated via booklet 
@@ -63,7 +65,7 @@ class SquirrelsGoNuts():
 
     flowerPiece = FlowerPieces("yellow")  # size 1; flower on top
 
-    acornPieces = ["a", "a", "a", "a" "a"]  # 5 pieces total --> placed in board's "o"
+    acornPieces = ["a", "a", "a", "a", "a"]  # 5 pieces total --> placed in board's "o"
 
     # maps integer (difficulty level) to squirrel coordinates
     challengePositions = {}
@@ -73,17 +75,16 @@ class SquirrelsGoNuts():
 
     """ when I place pieces on the board, move them around, would it be better to make a copy of the
     board each time, rather than mutating the board itself here? How would I implement something
-    like that for this game"""
-    # setting pieces on the board (testing with white squirrel)
+    like that for this game; difficulty position will determine how many squirrels we set on board 
+    picking random colored squirrels easier"""
+    boardCopy = copy.deepcopy(board)  # making a copy so no mutation problems later
     for coords in whiteSquirrel.shape:
         for xy in coords:
             xcoord = xy[0]
             ycoord = xy[1]
-            if board[xcoord][ycoord] != "o":
-                board[xcoord][ycoord] = "W"
-    print(board)
-
-
+            if boardCopy[xcoord][ycoord] != "o":
+                boardCopy[xcoord][ycoord] = "W"
+    board = boardCopy
 
 
     def __init__(self, difficultyLevel):
@@ -94,9 +95,9 @@ class SquirrelsGoNuts():
         # placement of game pieces dependent on boardSetUp tuple
         boardSetUp = SquirrelsGoNuts.challengePositions.get(difficultyLevel)
 
-    # how can you generate all possible moves?
     def generateAllMoves(self):
         return
+
 
     def doMove(self):
         return
