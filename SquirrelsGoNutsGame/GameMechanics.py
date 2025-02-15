@@ -14,8 +14,10 @@ class SquirrelPieces():
         self.shape = shape
         self.size = size
         self.flower = flower
-
         self.shape = self.shapeCoordinates(shape)
+        self.origin = (0, 0)
+        self.orientation = 0  # rotate piece around the board
+        self.tiles = None
 
     def has_Flower(self):
         return not self.flower == None
@@ -25,10 +27,10 @@ class SquirrelPieces():
 
     def shapeCoordinates(self, shape):
         if shape == "L":
-            self.shape = ([(0, 0), (0, 1), (1, 0)],
-                           [(0, 0), (1, 0), (1, -1)],
-                           [(0, 0), (0, -1), (-1, 0)],
-                           [(0, 0), (-1, 0), (-1, 1)])
+            self.shape = ([(0, 0), (0, 1), (1, 0)],  # orientation @ 0
+                           [(0, 0), (1, 0), (1, -1)],  # orientation @ 1
+                           [(0, 0), (0, -1), (-1, 0)],  # orientation @ 2
+                           [(0, 0), (-1, 0), (-1, 1)])  # orientation @ 3
 
         elif shape == "rectangle":
             self.shape = [
@@ -41,6 +43,10 @@ class SquirrelPieces():
             raise TypeError
 
         return self.shape
+
+    # move function for each squirrel piece
+    def move(self, direction):
+        return None
 
 
 class FlowerPieces():
@@ -65,7 +71,7 @@ class SquirrelsGoNuts():
 
     flowerPiece = FlowerPieces("yellow")  # size 1; flower on top
 
-    acornPieces = ["a", "a", "a", "a", "a"]  # 5 pieces total --> placed in board's "o"
+    acornPieces = ["a", "a", "a", "a", "a"]  # 5 acorn pieces total --> placed in board's "o"
 
     # maps integer (difficulty level) to squirrel coordinates
     challengePositions = {}
