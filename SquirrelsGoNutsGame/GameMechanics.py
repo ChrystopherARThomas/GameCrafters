@@ -82,8 +82,6 @@ class SquirrelsGoNuts:
 
     # maps integer (difficulty level) to squirrel coordinates
     challengePositions = {}
-    for i in range(61):
-        challengePositions[i] = None
 
     """ when I place pieces on the board, move them around, would it be better to make a copy of the
     board each time, rather than mutating the board itself here? How would I implement something
