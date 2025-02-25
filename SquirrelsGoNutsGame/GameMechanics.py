@@ -1,10 +1,11 @@
 # Implementing SquirrelsGoNuts
 import copy
+import json
+import pygame
 """ Game Rules: Place puzzle pieces on board as indicated via booklet 
 Nuts get placed in front of squirrels when game starts; once flower pieces have been set
 they can't be moved (yay!) 
 squirrels can move horizontally or vertically; also have one hole per acorn"""
-
 
 class SquirrelPieces:
     def __init__(self, color, shape, size, flower):
@@ -89,13 +90,18 @@ class SquirrelsGoNuts:
     picking random colored squirrels easier"""
     boardCopy = copy.deepcopy(board)  # making a copy so no mutation problems later
 
+
     def __init__(self, difficultyLevel):
         """ if the challenge position determines how many squirrels you'll have, how can I represent
         that diagram in code? """
-        SquirrelsGoNuts.whiteSquirrel.acorn = SquirrelsGoNuts.acornPieces[0]
 
         # placement of game pieces dependent on boardSetUp tuple
-        boardSetUp = SquirrelsGoNuts.challengePositions.get(difficultyLevel)
+        piecesSetUp = SquirrelsGoNuts.challengePositions.get(difficultyLevel)
+
+    """need to read in info from squirrel_Positions file to get information for difficulty level """
+    def readFile(self):
+        return None
+
 
     def generateAllMoves(self):
         return
