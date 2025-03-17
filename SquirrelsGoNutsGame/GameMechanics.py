@@ -1,11 +1,17 @@
 # Implementing SquirrelsGoNuts
 import copy
 import json
-import pygame
 """ Game Rules: Place puzzle pieces on board as indicated via booklet 
 Nuts get placed in front of squirrels when game starts; once flower pieces have been set
 they can't be moved (yay!) 
 squirrels can move horizontally or vertically; also have one hole per acorn"""
+
+
+""" reading coordinates for squirrel starting positions"""
+def read_file(file_path='squirrel_Positions.json'):
+    with open(file_path, "r", encoding="utf-8") as file:
+        data = json.load(file)
+        return data
 
 class SquirrelPieces:
     def __init__(self, color, shape, size, flower):
@@ -87,8 +93,6 @@ class SquirrelsGoNuts:
 
     acornPieces = ["a", "a", "a", "a", "a"]  # 5 acorn pieces total --> placed in board's "o"
 
-    # maps integer (difficulty level) to squirrel coordinates
-    challengePositions = {}
 
     """ when I place pieces on the board, move them around, would it be better to make a copy of the
     board each time, rather than mutating the board itself here? How would I implement something
@@ -100,13 +104,8 @@ class SquirrelsGoNuts:
     def __init__(self, difficultyLevel):
         """ if the challenge position determines how many squirrels you'll have, how can I represent
         that diagram in code? """
-
-        # placement of game pieces dependent on boardSetUp tuple
-        piecesSetUp = SquirrelsGoNuts.challengePositions.get(difficultyLevel)
-
-    """need to read in info from squirrel_Positions file to get information for difficulty level """
-    def readFile(self, file):
-        return file
+        squirrel_positions = read_file()
+        print(squirrel_positions)
 
 
     def move_horizontally(self):
