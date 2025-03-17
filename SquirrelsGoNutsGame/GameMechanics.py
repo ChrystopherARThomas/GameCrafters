@@ -26,7 +26,7 @@ class SquirrelPieces:
 
 
     def has_Flower(self):
-        return not self.flower == None
+        return self.flower 
 
     """ need to set up coordinates squirrel will be placed based on 
     squirrel's shape instance attribute, shapes attributes should be immutable"""
@@ -54,7 +54,13 @@ class SquirrelPieces:
      squirrel's origin will change """
 
     def move(self, direction):
-        return None
+        if direction == "up":
+            return direction
+        if direction == "down":
+            return direction
+        else:
+            return TypeError
+
 
 
 class FlowerPieces:  # flower pieces, once set, can't ever move
@@ -99,12 +105,20 @@ class SquirrelsGoNuts:
         piecesSetUp = SquirrelsGoNuts.challengePositions.get(difficultyLevel)
 
     """need to read in info from squirrel_Positions file to get information for difficulty level """
-    def readFile(self):
+    def readFile(self, file):
+        return file
+
+
+    def move_horizontally(self):
+        return None
+
+    def move_vertically(self):
+        return None
+
+    def generateAllMoves(self):
+        return None
+
+    def doMove(self):
         return None
 
 
-    def generateAllMoves(self):
-        return
-
-    def doMove(self):
-        return
