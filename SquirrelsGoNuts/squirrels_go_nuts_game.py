@@ -81,6 +81,18 @@ class Squirrels:
         - a bit more interesting b/c some squirrels are L shaped
         -
         """
+        squirrel_positions = tuple(sorted(
+            (k, tuple(v)) for k, v in self.squirrels_list.items()
+        ))
+        nut_positions = tuple(sorted(
+        (k, tuple(v)) if isinstance(v, list) else (k, v)
+        for k, v in self.nuts_list.items()
+        ))
+        hole_states = tuple(sorted(
+        (k, tuple(v)) if isinstance(v, list) else (k, v)
+        for k, v in self.actual_hole_list.items()
+        ))
+        return hash((squirrel_positions, nut_positions, hole_states))
 
 
     def primitive(self, **kwargs):
