@@ -81,10 +81,7 @@ class Squirrels:
         - a bit more interesting b/c some squirrels are L shaped
         -
         """
-        squirrel_positions = tuple(sorted((k, tuple(v)) for k, v in self.squirrels_list.items()))
-        nut_positions = tuple(sorted(self.nuts_list.items()))
-        hole_states = tuple(sorted(self.actual_hole_list.items()))
-        return hash((squirrel_positions, nut_positions, hole_states))
+
 
     def primitive(self, **kwargs):
         """
@@ -98,7 +95,7 @@ class Squirrels:
     def generateMoves(self, movetype="all"):
         if movetype == 'for' or movetype == 'back':
             return []  # All moves are bidirectional
-        moves = []
+        moves = ()
         checked_squirrel = []
         for i, piece in enumerate(self.pos):
             # Check for leftward moves
@@ -123,7 +120,9 @@ class Squirrels:
                                 else : blocked = True # can't execute any move past this
 
                         if len(count) == num_blocks: # if all blocks can move for the squirrel
-                            moves.append(count)
+                            #moves.append(count)
+                            tup = moves + (count)
+                            moves = tup
                         j += 1
                     j = 0
                     blocked = False
@@ -141,7 +140,9 @@ class Squirrels:
                                     count.append(f"M_{i + Sorientation}_{i + j + 1 + Sorientation}_{squirrel_block}") # CHECK HERE COULD BE SUS
                                 else : blocked = True # can't execute any move past this
                         if len(count) == num_blocks:
-                            moves.append(count)
+                            #moves.append(count)
+                            tup = moves + (count)
+                            moves = tup
                         j += 1
                     j = 1
                     blocked = False
@@ -157,7 +158,9 @@ class Squirrels:
                                     count.append(f"M_{i + Sorientation}_{(i + Sorientation) - 4 * j}_{squirrel_block}")
                                 else : blocked = True # can't execute any move past this
                         if len(count) == num_blocks:
-                            moves.append(count)
+                            #moves.append(count)
+                            tup = moves + (count)
+                            moves = tup
                         j += 1
                     j = 1
                     blocked = False
@@ -174,7 +177,10 @@ class Squirrels:
                                 else : blocked = True # can't execute any move past this
                         if len(count) == num_blocks:
                             #print(count)
-                            moves.append(count)
+                            #moves.append(count)
+                            tup = moves + (count)
+                            moves = tup
+
                         j += 1
 
                     checked_squirrel.append(type_index)
