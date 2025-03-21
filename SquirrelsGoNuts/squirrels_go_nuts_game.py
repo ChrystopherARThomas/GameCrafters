@@ -100,14 +100,14 @@ class Squirrels:
         Return PuzzleValue.SOLVABLE if the current position is primitive;
         otherwise return PuzzleValue.UNDECIDED.
         """
-        if self.nuts_list.count() == 0 and self.nuts_list == self.actual_hole_list:
+        if len(self.nuts_list) == 0 and self.nuts_list == self.actual_hole_list:
             return PuzzleValue.SOLVABLE
         return PuzzleValue.UNDECIDED
 
     def generateMoves(self, movetype="all"):
         if movetype == 'for' or movetype == 'back':
             return []  # All moves are bidirectional
-        moves = ()
+        moves = []
         checked_squirrel = []
         for i, piece in enumerate(self.pos):
             # Check for leftward moves
@@ -132,9 +132,7 @@ class Squirrels:
                                 else : blocked = True # can't execute any move past this
 
                         if len(count) == num_blocks: # if all blocks can move for the squirrel
-                            #moves.append(count)
-                            tup = moves + (count)
-                            moves = tup
+                            moves.append(count)
                         j += 1
                     j = 0
                     blocked = False
@@ -152,9 +150,7 @@ class Squirrels:
                                     count.append(f"M_{i + Sorientation}_{i + j + 1 + Sorientation}_{squirrel_block}") # CHECK HERE COULD BE SUS
                                 else : blocked = True # can't execute any move past this
                         if len(count) == num_blocks:
-                            #moves.append(count)
-                            tup = moves + (count)
-                            moves = tup
+                            moves.append(count)
                         j += 1
                     j = 1
                     blocked = False
@@ -170,9 +166,7 @@ class Squirrels:
                                     count.append(f"M_{i + Sorientation}_{(i + Sorientation) - 4 * j}_{squirrel_block}")
                                 else : blocked = True # can't execute any move past this
                         if len(count) == num_blocks:
-                            #moves.append(count)
-                            tup = moves + (count)
-                            moves = tup
+                            moves.append(count)
                         j += 1
                     j = 1
                     blocked = False
@@ -189,9 +183,7 @@ class Squirrels:
                                 else : blocked = True # can't execute any move past this
                         if len(count) == num_blocks:
                             #print(count)
-                            #moves.append(count)
-                            tup = moves + (count)
-                            moves = tup
+                            moves.append(count)
 
                         j += 1
 
