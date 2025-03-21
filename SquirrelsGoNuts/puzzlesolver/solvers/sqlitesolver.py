@@ -1,7 +1,7 @@
 from . import GeneralSolver, DATABASE_DIR
 from ..util import *
 from pathlib import Path
-from sqlitedict import SqliteDict
+#from sqlitedict import SqliteDict
 
 class SqliteSolver(GeneralSolver):
     """

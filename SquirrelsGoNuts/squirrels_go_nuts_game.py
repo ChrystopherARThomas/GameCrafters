@@ -20,7 +20,7 @@ class Squirrels:
             raise TypeError("Invalid variantid")
         return Squirrels(variant_id=variantid)
 
-    def __init__(self, variant_id, puzzle_id=None, pos=None, color=None, shape=None, size=16, flower=None):
+    def __init__(self, variant_id, puzzle_id=None, pos=None, squirrels_list={}, nuts_list={}, hole_list={}, actual_hole_list={}, hole_matching={}):
         """
         Your constructor can have any signature you'd like,
         because it is only called by the other methods of this class.
@@ -33,16 +33,14 @@ class Squirrels:
         """
         super().__init__()
         self.variant_id = variant_id
-        self.squirrels_list = {}
-        self.nuts_list = {}
-        self.hole_list = {}
-        self.actual_hole_list = {}
+        self.squirrels_list = squirrels_list
+        self.nuts_list = nuts_list
+        self.hole_list = hole_list
+        self.actual_hole_list = actual_hole_list
         self.pos = pos
         self.hole_coords = [2, 4, 9, 15] # the coordinates in holes
-        self.hole_matching = {} # the coordinate to hole piece string matching
-        print(self.pos)
+        self.hole_matching = hole_matching # the coordinate to hole piece string matching
         if self.pos is None:
-            print(self.pos)
             #/Users/User/Desktop/SquirrelsGoNuts/assets/squirrelsgonuts/starter
             #assets/squirrelsgonuts/starter
             variant_file = f"/Users/User/Desktop/SquirrelsGoNuts/assets/squirrelsgonuts/{variant_id}.txt"
@@ -57,27 +55,43 @@ class Squirrels:
                             self.pos = variant[:].rstrip().split(",")  # remove trailing newline
                             break
         else:
-            self.pos = pos.split(",")
-        for i, piece in enumerate(self.pos):
-            if len(piece) == 5: #means we have a nut or hole
-                type, type_index, relation = piece.split("_")
-                if type == "H":
-                    self.hole_list[type_index] = relation
-                    self.hole_matching[i] = piece
-            if len(piece) >= 7:
-                type, type_index, relation, orientation = piece.split("_")
-                if type == "N":
-                    if relation == "O":
-                        self.nuts_list[type_index] = piece
-                    if type_index not in self.squirrels_list:
-                        self.squirrels_list[type_index] = []
-                    self.squirrels_list[type_index].append(piece)
+            self.pos = pos
+        if self.squirrels_list == {} and self.nuts_list == {} and self.hole_list == {} and self.actual_hole_list == {}:
+            for i, piece in enumerate(self.pos):
+                if len(piece) == 5: #means we have a nut or hole
+                    type, type_index, relation = piece.split("_")
+                    if type == "H":
+                        self.hole_list[type_index] = relation
+                        #print(i, piece)
+                        self.hole_matching[i] = piece
+                        #print(self.hole_matching)
+                if len(piece) >= 7:
+                    type, type_index, relation, orientation = piece.split("_")
+                    if type == "N":
+                        if relation == "O":
+                            self.nuts_list[type_index] = piece
+                        if type_index not in self.squirrels_list:
+                            self.squirrels_list[type_index] = []
+                        self.squirrels_list[type_index].append(piece)
+    def __hash__(self):
+        """ Return a hash value of your position
+        SQUIRRELS GO NUTS:
+
+        - We could hash the position of the squirrels b/c not just a red piece
+        - a bit more interesting b/c some squirrels are L shaped
+        -
+        """
+        squirrel_positions = tuple(sorted(self.squirrels_list.items()))
+        nut_positions = tuple(sorted(self.nuts_list.items()))
+        hole_states = tuple(sorted(self.actual_hole_list.items()))
+        return hash((squirrel_positions, nut_positions, hole_states))
+
     def primitive(self, **kwargs):
         """
         Return PuzzleValue.SOLVABLE if the current position is primitive;
         otherwise return PuzzleValue.UNDECIDED.
         """
-        if self.nuts_list.count():
+        if self.nuts_list.count() == 0 and self.nuts_list == self.actual_hole_list:
             return PuzzleValue.SOLVABLE
         return PuzzleValue.UNDECIDED
 
@@ -169,29 +183,30 @@ class Squirrels:
     def doMove(self, move, **kwargs):
         if move not in self.generateMoves():
             raise ValueError
+        #print(self.hole_matching)
         new_pos = list(self.pos)
-        print(move)
         for piece in move:
-            #print(piece)
             _, start, end, type, type_index, relation, orientation = piece.split("_")
             start = int(start)
             end = int(end)
             # Make sure to adjust when a nut is in a hole
             # First check the move's orientation to know which way to move
             # check if new piece has hole -> means it needs to be updated into the hole placements
-            print(new_pos[end])
-            new_pos[end] = type+"_"+type_index+"_"+relation+"_"+orientation
-            print(new_pos[end])
-            if end in self.hole_coords and end in self.nuts_list:
+            piece_string = type+"_"+type_index+"_"+relation+"_"+orientation
+            new_pos[end] = piece_string
+            #print(new_pos[end])
+            if end in self.hole_coords and end in self.nuts_list: # CHECK THIS IT IS SUS AND NOT DELETING HMMMM
                 self.actual_hole_list[end] = type + "_" + type_index # hole location : nut index
+                print(self.nuts_list)
                 self.nuts_list.pop(type_index) # takes the nuts on the board off -> no more nut to consider
-            if start not in self.hole_coords:
+                #self.nuts_list
+            if start not in self.hole_coords and not (len(new_pos[start]) == 7 and new_pos[start] != piece_string): # needs to check that it is not a nut
                 new_pos[start] = "-"
             if start in self.hole_coords: # if there was a hole here
+                print(self.hole_matching)
                 new_pos[start] = self.hole_matching[start] # initialize back to the previous hole
                 # check if the old piece has a hole inside, t
-            print(new_pos)
-            return Squirrels(variant_id=self.variant_id, pos=''.join(new_pos))
+        return Squirrels(variant_id=self.variant_id, pos=new_pos, squirrels_list=self.squirrels_list, nuts_list=self.nuts_list, hole_list=self.hole_list, actual_hole_list=self.actual_hole_list, hole_matching=self.hole_matching)
 
     def printPuzzle(self):
         print(self.pos)
@@ -199,7 +214,21 @@ class Squirrels:
         print(self.nuts_list)
         print(self.hole_list)
 
+#setter = Squirrels("starter")
+#setter.printPuzzle()
+#print(setter.generateMoves("bi"))
+#print(setter.doMove(['M_5_4_N_1_O_0', 'M_6_5_N_1_X_1']).pos)
+
 setter = Squirrels("starter")
-setter.printPuzzle()
-print(setter.generateMoves("bi"))
-print(setter.doMove(['M_5_4_N_1_O_0', 'M_6_5_N_1_X_1']))
+#setter.printPuzzle()
+setter_move = setter.generateMoves("bi")
+print(setter_move)
+print(setter.nuts_list)
+setter_move_do = setter.doMove(['M_5_4_N_1_O_0', 'M_6_5_N_1_X_1'])
+print(setter_move_do.nuts_list)
+print(setter_move_do.pos)
+print(setter_move_do.generateMoves())
+setter_move_do_do = setter_move_do.doMove(['M_4_5_N_1_O_0', 'M_5_6_N_1_X_1'])
+#print(setter_move_do_do.pos)
+print(setter_move_do_do.nuts_list)
+print(setter_move_do_do.actual_hole_list)
