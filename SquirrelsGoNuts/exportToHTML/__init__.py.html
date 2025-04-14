@@ -1,0 +1,1375 @@
+<html>
+<head>
+<title>__init__.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #ffb3ff;}
+.s1 { color: #ffebf7;}
+.s2 { color: #ff99ff;}
+.s3 { color: #ffbab8;}
+.s4 { color: #ffa14a;}
+.s5 { color: #6adcea;}
+</style>
+</head>
+<body bgcolor="#00041f">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+__init__.py</font>
+</center></td></tr></table>
+<pre><span class="s0">from </span><span class="s2">.</span><span class="s1">models </span><span class="s0">import </span><span class="s1">Game</span><span class="s2">, </span><span class="s1">Variant</span>
+<span class="s0">from </span><span class="s2">.</span><span class="s1">gamesman_classic </span><span class="s0">import </span><span class="s1">GamesmanClassic</span>
+<span class="s0">from </span><span class="s2">.</span><span class="s1">gamesman_puzzles </span><span class="s0">import </span><span class="s1">GamesmanPuzzles</span>
+<span class="s0">from </span><span class="s2">.</span><span class="s1">gamesman_one </span><span class="s0">import </span><span class="s1">GamesmanOne</span>
+<span class="s0">from </span><span class="s2">.</span><span class="s1">chess </span><span class="s0">import </span><span class="s1">RegularChessVariant</span>
+<span class="s0">from </span><span class="s2">.</span><span class="s1">tootandotto </span><span class="s0">import </span><span class="s1">TootAndOtto</span>
+<span class="s0">from </span><span class="s2">.</span><span class="s1">nim </span><span class="s0">import </span><span class="s1">NimVariant</span><span class="s2">, </span><span class="s1">nim_custom_start</span>
+<span class="s0">from </span><span class="s2">.</span><span class="s1">dawsonschess </span><span class="s0">import </span><span class="s1">DawsonsChessVariant</span><span class="s2">, </span><span class="s1">dawsonschess_custom_start</span>
+<span class="s0">from </span><span class="s2">.</span><span class="s1">kayles </span><span class="s0">import </span><span class="s1">KaylesVariant</span><span class="s2">, </span><span class="s1">kayles_custom_start</span>
+<span class="s0">from </span><span class="s2">.</span><span class="s1">chinesechess </span><span class="s0">import </span><span class="s1">RegularChineseChessVariant</span>
+<span class="s0">from </span><span class="s2">.</span><span class="s1">Jenga </span><span class="s0">import </span><span class="s1">Jenga</span>
+<span class="s0">from </span><span class="s2">.</span><span class="s1">EuclidsGame </span><span class="s0">import </span><span class="s1">EuclidsGame</span>
+<span class="s0">from </span><span class="s2">.</span><span class="s1">Ghost </span><span class="s0">import </span><span class="s1">Ghost</span>
+
+<span class="s3">&quot;&quot;&quot; 
+    All one-player (puzzle) games and two-player games should be  
+    listed in the `games` dict. 
+ 
+    Note: All keys of the `games` dict (i.e., game ids) should 
+    only contain lowercase letters and numbers. No underscores, 
+    spaces, or uppercase letters. 
+&quot;&quot;&quot;</span>
+
+<span class="s1">games </span><span class="s2">= {</span>
+<span class="s3">&quot;&quot;&quot; are the variant ID's something we create or something we already have? What is the data  
+ provider and what is it for? &quot;&quot;&quot;</span>
+    <span class="s3">'game_id'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span><span class="s1">name</span><span class="s2">=</span><span class="s3">&quot;squirrels go nuts&quot;</span><span class="s2">,</span>
+                    <span class="s1">variants</span><span class="s2">= {</span><span class="s3">'basic'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span><span class="s1">name</span><span class="s2">=</span><span class="s3">'basic'</span><span class="s2">,</span>
+                                                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+
+                                                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'None'</span><span class="s2">,</span>
+                                                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s3">'None'</span><span class="s2">,</span>
+                                                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+                               <span class="s2">},</span>
+                    <span class="s1">is_two_player_game</span><span class="s2">=</span><span class="s0">False</span><span class="s2">,</span>
+                    <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+
+
+
+
+  
+    <span class="s3">'0to10by1or2'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'0 to 10 by 1 or 2'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'regular'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Regular'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'1210'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">1</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+
+    <span class="s3">'1dchess'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'1D Chess'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'regular'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Regular'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'1dchess'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">0</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+    
+    <span class="s3">'3spot'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'3-Spot'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'regular'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Regular'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'3spot'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">690</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+    
+    <span class="s3">'abalone'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Abalone'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'regular'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Regular'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'abalone'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">1</span><span class="s2">)</span>
+        <span class="s2">}</span>
+    <span class="s2">),</span>
+
+    <span class="s3">'abrobad' </span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name </span><span class="s2">= </span><span class="s3">'Abrobad' </span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'standard'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name </span><span class="s2">= </span><span class="s3">'Regular'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">= </span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id </span><span class="s2">= </span><span class="s3">'abrobad'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id </span><span class="s2">= </span><span class="s3">'0'</span><span class="s2">,</span>
+                <span class="s1">gui </span><span class="s2">= </span><span class="s3">'v3'</span><span class="s2">,)</span>
+        <span class="s2">},</span>
+    <span class="s1">gui </span><span class="s2">= </span><span class="s3">'v3'</span><span class="s2">),</span>
+    
+    <span class="s3">'achi'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Achi'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'regular'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Regular'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'achi'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">2</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+    
+    <span class="s3">'adugo'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Adugo'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'5x5'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'5x5'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'adugo'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">1</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v2'</span><span class="s2">),</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v2'</span><span class="s2">),</span>
+    
+    <span class="s3">'allqueenschess'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'All Queens Chess'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'standard'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Standard'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'allqueenschess'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">0</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span>
+    <span class="s2">),</span>
+    
+    <span class="s3">'baghchal'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Bagh-Chal'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'regular'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Standard'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'baghchal'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">5</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+
+    <span class="s3">'beeline'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Beeline'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'regular'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Standard'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'beeline'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">0</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+
+    <span class="s3">'bishoppuzzle'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Bishop Puzzle'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s1">v</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Standard'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanPuzzles</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'bishoppuzzle'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s1">v</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span>
+            <span class="s2">) </span><span class="s0">for </span><span class="s1">v </span><span class="s0">in </span><span class="s2">(</span><span class="s3">'4x5_8'</span><span class="s2">, </span><span class="s3">'4x7_4'</span><span class="s2">, </span><span class="s3">'6x7_6'</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">is_two_player_game</span><span class="s2">=</span><span class="s0">False</span><span class="s2">,</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span>
+    <span class="s2">),</span>
+    
+    <span class="s3">'change'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Change!'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'regular'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Regular'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'change'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">3</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span>
+            <span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+    
+    <span class="s3">'chess'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Chess'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'endgame1'</span><span class="s2">: </span><span class="s1">RegularChessVariant</span><span class="s2">(</span><span class="s3">'K1k1B3/8/8/8/8/8/7N/8 w - - 0 1'</span><span class="s2">, </span><span class="s1">name</span><span class="s2">=</span><span class="s3">'Endgame 1'</span><span class="s2">),</span>
+            <span class="s3">'endgame2'</span><span class="s2">: </span><span class="s1">RegularChessVariant</span><span class="s2">(</span><span class="s3">'8/6R1/6k1/p2pB3/8/8/r7/6K1 b - - 0 1'</span><span class="s2">, </span><span class="s1">name</span><span class="s2">=</span><span class="s3">'Endgame 2'</span><span class="s2">),</span>
+            <span class="s3">'start'</span><span class="s2">: </span><span class="s1">RegularChessVariant</span><span class="s2">(</span><span class="s3">'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1'</span><span class="s2">, </span><span class="s1">name</span><span class="s2">=</span><span class="s3">'Start'</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v2'</span><span class="s2">),</span>
+
+    <span class="s3">'chinesechess'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Chinese Chess'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'regular'</span><span class="s2">: </span><span class="s1">RegularChineseChessVariant</span><span class="s2">()</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+    
+    <span class="s3">'chomp'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Chomp'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'4x7'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'4 Rows, 7 Columns'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'chomp'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">36</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+            <span class="s3">'5x8'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'5 Rows, 8 Columns'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'chomp'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">47</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+            <span class="s3">'8x10'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'8 Rows, 10 Columns'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'chomp'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">79</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+
+    <span class="s3">'chopsticks'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Chopsticks'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'0'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'[Standard] Neither pass-equivalent transfers nor full transfers allowed.'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'chopsticks'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">0</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+            <span class="s3">'1'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Pass-equivalent transfers allowed. Full transfers not allowed.'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'chopsticks'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">1</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+            <span class="s3">'2'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Pass-equivalent transfers not allowed. Full transfers allowed.'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'chopsticks'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">2</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+            <span class="s3">'3'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Both pass-equivalent transfers and full transfers allowed.'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'chopsticks'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">3</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+    
+    <span class="s3">'chungtoi'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Chung-Toi'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'regular'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Regular'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'ctoi'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">62</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+    
+    <span class="s3">'connect4'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Connect 4'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'6x6'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'6x6'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'connect4'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">1</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+            <span class="s3">'6x7'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'6x7'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'connect4'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">2</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+    
+    <span class="s3">'dao'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Dao'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'regular'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Regular'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'dao'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">0</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+        
+    <span class="s3">'dawsonschess'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Dawson</span><span class="s5">\'</span><span class="s3">s Chess'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s1">str</span><span class="s2">(</span><span class="s1">i</span><span class="s2">): </span><span class="s1">DawsonsChessVariant</span><span class="s2">(</span><span class="s1">i</span><span class="s2">, </span><span class="s1">str</span><span class="s2">(</span><span class="s1">i</span><span class="s2">)) </span><span class="s0">for </span><span class="s1">i </span><span class="s0">in </span><span class="s1">range</span><span class="s2">(</span><span class="s4">5</span><span class="s2">, </span><span class="s4">10</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">custom_variant</span><span class="s2">=</span><span class="s1">dawsonschess_custom_start</span><span class="s2">,</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+    
+    <span class="s3">'dinododgem'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Dino Dodgem'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'regular'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Regular'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'dinododgem'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">151</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+    
+    <span class="s3">'dodgem'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Dodgem'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'regular'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Regular'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'dodgem'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">2</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+
+    <span class="s3">'domineering'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Domineering'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'4'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'4x4'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'domineering'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">0</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+            <span class="s3">'5'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'5x5'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'domineering'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">1</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+            <span class="s3">'6'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'6x6'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'domineering'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">2</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+
+    <span class="s3">'dragonsandswans'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Dragons &amp; Swans'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'1'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'1 Dragon'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'swans'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">1</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+            <span class="s3">'2'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'2 Dragons'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'swans'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">5</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+            <span class="s3">'3'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'3 Dragons'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'swans'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">9</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+            <span class="s3">'4'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'4 Dragons'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'swans'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">13</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+    
+    <span class="s3">'dshogi'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Dōbutsu shōgi'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'regular'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Regular'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanOne</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'dshogi'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">0</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+    
+    <span class="s3">'euclidsgame'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">&quot;Euclid's Game&quot;</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'regular'</span><span class="s2">: </span><span class="s1">EuclidsGame</span><span class="s2">()</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v2'</span><span class="s2">),</span>
+
+    <span class="s3">'fivefieldkono'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Five Field Kono'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'regular'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">&quot;Tie if you can't move&quot;</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'fivefieldkono'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">0</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+            <span class="s3">'delta'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">&quot;Lose if you can't move&quot;</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'fivefieldkono'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">1</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+            <span class="s3">'omega'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">&quot;Win if you can't move&quot;</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'fivefieldkono'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">2</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+
+    <span class="s3">'fourfieldkono'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Four Field Kono'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'standard'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Standard'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'kono'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">1096</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+
+    <span class="s3">'forestfox'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Forest Fox'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'regular'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Regular'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'forestfox'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">0</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+
+    <span class="s3">'foxandhounds'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Fox and Hounds'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'regular'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Regular'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'foxes'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">1</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+
+    <span class="s3">'ghost'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Ghost'</span><span class="s2">,</span>
+        <span class="s1">variants </span><span class="s2">= {</span>
+            <span class="s1">str</span><span class="s2">(</span><span class="s1">c</span><span class="s2">): </span><span class="s1">Ghost</span><span class="s2">(</span><span class="s1">minimum_length </span><span class="s2">= </span><span class="s1">int</span><span class="s2">(</span><span class="s1">c</span><span class="s2">)) </span><span class="s0">for </span><span class="s1">c </span><span class="s0">in </span><span class="s1">range</span><span class="s2">(</span><span class="s4">3</span><span class="s2">, </span><span class="s4">7</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span>
+    <span class="s2">),</span>
+
+    <span class="s3">'gobbletgobblers'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Gobblet Gobblers'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'regular'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'regular'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanOne</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'gobbletg'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">0</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+
+    <span class="s3">'graphgame'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Graph'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'0'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'10 to 0 by 1 or 2'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'graphgame'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">1</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+            <span class="s3">'1'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Pure Draw Example'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'graphgame'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">0</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+            <span class="s3">'2'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Various Primitives'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'graphgame'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">2</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+    
+    <span class="s3">'towersofhanoi'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">&quot;Towers of Hanoi&quot;</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">= {</span>
+            <span class="s1">v</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">f&quot;</span><span class="s5">{</span><span class="s1">v</span><span class="s2">.</span><span class="s1">split</span><span class="s2">(</span><span class="s3">'_'</span><span class="s2">)[</span><span class="s4">0</span><span class="s2">]</span><span class="s5">} </span><span class="s3">Rod</span><span class="s5">{</span><span class="s3">'' </span><span class="s0">if </span><span class="s1">v</span><span class="s2">.</span><span class="s1">split</span><span class="s2">(</span><span class="s3">'_'</span><span class="s2">)[</span><span class="s4">0</span><span class="s2">] == </span><span class="s3">'1' </span><span class="s0">else </span><span class="s3">'s'</span><span class="s5">} </span><span class="s3">&amp; </span><span class="s5">{</span><span class="s1">v</span><span class="s2">.</span><span class="s1">split</span><span class="s2">(</span><span class="s3">'_'</span><span class="s2">)[</span><span class="s4">1</span><span class="s2">]</span><span class="s5">} </span><span class="s3">Disk</span><span class="s5">{</span><span class="s3">'' </span><span class="s0">if </span><span class="s1">v</span><span class="s2">.</span><span class="s1">split</span><span class="s2">(</span><span class="s3">'_'</span><span class="s2">)[</span><span class="s4">1</span><span class="s2">] == </span><span class="s3">'1' </span><span class="s0">else </span><span class="s3">'s'</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanPuzzles</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'towersofhanoi'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s1">v</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span>
+            <span class="s2">) </span><span class="s0">for </span><span class="s1">v </span><span class="s0">in </span><span class="s2">(</span><span class="s3">f'</span><span class="s5">{</span><span class="s1">x</span><span class="s5">}</span><span class="s3">_</span><span class="s5">{</span><span class="s1">y</span><span class="s5">}</span><span class="s3">' </span><span class="s0">for </span><span class="s1">x </span><span class="s0">in </span><span class="s1">range</span><span class="s2">(</span><span class="s4">3</span><span class="s2">, </span><span class="s4">5</span><span class="s2">) </span><span class="s0">for </span><span class="s1">y </span><span class="s0">in </span><span class="s1">range</span><span class="s2">(</span><span class="s4">1</span><span class="s2">, </span><span class="s4">9</span><span class="s2">))</span>
+        <span class="s2">},</span>
+        <span class="s1">is_two_player_game</span><span class="s2">=</span><span class="s0">False</span><span class="s2">,</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span>
+    <span class="s2">),</span>
+
+    <span class="s3">'hareandhounds'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Hare and Hounds'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'s-hounds-first'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Small, Hounds First'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'haregame'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">1</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+            <span class="s3">'s-hare-first'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Small, Hare First'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'haregame'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">2</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+            <span class="s3">'m-hounds-first'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Medium, Hounds First'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'haregame'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">3</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+            <span class="s3">'m-hare-first'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Medium, Hare First'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'haregame'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">4</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+            <span class="s3">'l-hounds-first'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Large, Hounds First'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'haregame'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">5</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+            <span class="s3">'l-hare-first'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Large, Hare First'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'haregame'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">6</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+
+    <span class="s3">'hobaggonu'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">&quot;HoBagGonu&quot;</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'regular'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'regular'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'hobaggonu'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">0</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">,</span>
+            <span class="s2">),</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">,</span>
+    <span class="s2">),</span>
+    
+    <span class="s3">'hopndrop'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">&quot;Hop N' Drop&quot;</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">= {</span>
+            <span class="s3">&quot;map1&quot;</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">&quot;Map 1&quot;</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanPuzzles</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'hopndrop'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s3">&quot;map1&quot;</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span>
+            <span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">is_two_player_game</span><span class="s2">=</span><span class="s0">False</span>
+    <span class="s2">),</span>
+
+    <span class="s3">'jan'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">&quot;Jan&quot;</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'4x4'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'4x4'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'jan'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s3">'1'</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">,</span>
+            <span class="s2">),</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">,</span>
+    <span class="s2">),</span>
+
+    <span class="s3">'jenga'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Jenga'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">&quot;regular&quot; </span><span class="s2">: </span><span class="s1">Jenga</span><span class="s2">()</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+
+    <span class="s3">'joust'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Joust'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'4x4'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'4x4'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'joust'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">288751</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+            <span class="s3">'5x4'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'5x4'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'joust'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">297501</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+    
+    <span class="s3">'kayles'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Kayles'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s1">str</span><span class="s2">(</span><span class="s1">i</span><span class="s2">): </span><span class="s1">KaylesVariant</span><span class="s2">(</span><span class="s1">i</span><span class="s2">, </span><span class="s1">str</span><span class="s2">(</span><span class="s1">i</span><span class="s2">)) </span><span class="s0">for </span><span class="s1">i </span><span class="s0">in </span><span class="s1">range</span><span class="s2">(</span><span class="s4">5</span><span class="s2">, </span><span class="s4">10</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">custom_variant</span><span class="s2">=</span><span class="s1">kayles_custom_start</span><span class="s2">,</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+
+    <span class="s3">'kaooa'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Kaooa'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'regular'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'regular'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanOne</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'mkaooa'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">0</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+
+    <span class="s3">'konane'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Kōnane'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'4x4'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'4x4'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'konane'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">0</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+            <span class="s3">'4x5'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'4x5'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'konane'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">1</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+            <span class="s3">'5x5'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'5x5'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'konane'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">2</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+            <span class="s3">'5x6'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'5x6'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'konane'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">3</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+    
+    <span class="s3">'lgame'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'L-game'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'regular'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Regular'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'Lgame'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">2</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+
+    <span class="s3">'lewthwaitesgame'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">&quot;Lewthwaite's Game&quot;</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'standard'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Standard'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'lewth'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">0</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+    
+    <span class="s3">'lightsout'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Lights Out'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s1">v</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">f'</span><span class="s5">{</span><span class="s1">v</span><span class="s5">}</span><span class="s3">x</span><span class="s5">{</span><span class="s1">v</span><span class="s5">}</span><span class="s3">'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanPuzzles</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'lightsout'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s1">v</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span>
+            <span class="s2">) </span><span class="s0">for </span><span class="s1">v </span><span class="s0">in </span><span class="s3">'2345678'</span>
+        <span class="s2">},</span>
+        <span class="s1">is_two_player_game</span><span class="s2">=</span><span class="s0">False</span><span class="s2">,</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span>
+    <span class="s2">),</span>
+    
+    <span class="s3">'lite3'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Lite 3'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'three-in-a-row'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Three-In-A-Row Wins'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'lite3'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">1</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+            <span class="s3">'surround'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Surround Wins'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'lite3'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">2</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+            <span class="s3">'both'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Three-In-A-Row and Surround BOTH win'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'lite3'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">3</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+    
+    <span class="s3">'mancala'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Mancala'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'regular'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Regular'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'mancala'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">1</span><span class="s2">)</span>
+        <span class="s2">}</span>
+    <span class="s2">),</span>
+    
+    <span class="s3">'mutorere'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Mū Tōrere'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'regular'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Standard'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'tore'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">2</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+            <span class="s3">'misere'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Misere'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'tore'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">1</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+
+    <span class="s3">'neutron' </span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name </span><span class="s2">= </span><span class="s3">'Neutron' </span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'regular'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name </span><span class="s2">= </span><span class="s3">'Home Row Wins'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanOne</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id </span><span class="s2">= </span><span class="s3">'neutron' </span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id </span><span class="s2">= </span><span class="s3">'0' </span><span class="s2">,</span>
+                <span class="s1">gui </span><span class="s2">= </span><span class="s3">'v3'</span><span class="s2">,</span>
+            <span class="s2">),</span>
+        <span class="s2">},</span>
+    <span class="s1">gui </span><span class="s2">= </span><span class="s3">'v3'</span><span class="s2">),</span>
+    
+    <span class="s3">'nim'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Nim'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s1">s</span><span class="s2">: </span><span class="s1">NimVariant</span><span class="s2">(</span><span class="s1">p</span><span class="s2">, </span><span class="s1">s</span><span class="s2">) </span><span class="s0">for </span><span class="s1">p</span><span class="s2">, </span><span class="s1">s </span><span class="s0">in </span><span class="s2">(</span>
+                <span class="s2">((</span><span class="s4">2</span><span class="s2">, </span><span class="s4">3</span><span class="s2">, </span><span class="s4">5</span><span class="s2">, </span><span class="s4">7</span><span class="s2">), </span><span class="s3">'2_3_5_7'</span><span class="s2">),</span>
+                <span class="s2">((</span><span class="s4">3</span><span class="s2">, </span><span class="s4">3</span><span class="s2">, </span><span class="s4">3</span><span class="s2">), </span><span class="s3">'3_3_3'</span><span class="s2">),</span>
+                <span class="s2">((</span><span class="s4">1</span><span class="s2">, </span><span class="s4">2</span><span class="s2">, </span><span class="s4">3</span><span class="s2">, </span><span class="s4">4</span><span class="s2">, </span><span class="s4">5</span><span class="s2">), </span><span class="s3">'1_2_3_4_5'</span><span class="s2">),</span>
+                <span class="s2">((</span><span class="s4">7</span><span class="s2">, </span><span class="s4">8</span><span class="s2">, </span><span class="s4">11</span><span class="s2">, </span><span class="s4">13</span><span class="s2">, </span><span class="s4">15</span><span class="s2">), </span><span class="s3">'7_8_11_13_15'</span><span class="s2">),</span>
+                <span class="s2">((</span><span class="s4">1</span><span class="s2">, </span><span class="s4">3</span><span class="s2">, </span><span class="s4">5</span><span class="s2">, </span><span class="s4">7</span><span class="s2">, </span><span class="s4">9</span><span class="s2">, </span><span class="s4">10</span><span class="s2">), </span><span class="s3">'1_3_5_7_9_10'</span><span class="s2">)</span>
+            <span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">custom_variant</span><span class="s2">=</span><span class="s1">nim_custom_start</span><span class="s2">,</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+    
+    <span class="s3">'ninemensmorris'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">&quot;Nine Men's Morris&quot;</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'regular'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">&quot;Nine Men's Morris&quot;</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'369mm'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">12</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span>
+            <span class="s2">),</span>
+            <span class="s3">'6mmNoFly'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">&quot;Six Men's Morris&quot;</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'369mm'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">6</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span>
+            <span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+
+    <span class="s3">'notakto'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Notakto'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'regular'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'1 Board'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'notakto'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">0</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+            <span class="s3">'board2'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'2 Boards'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'notakto'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">1</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+            <span class="s3">'board3'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'3 Boards'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'notakto'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">2</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+    
+    <span class="s3">'npuzzle'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Sliding Number Puzzle'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'3'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'8-Puzzle'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanPuzzles</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'npuzzle'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s3">'3'</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">is_two_player_game</span><span class="s2">=</span><span class="s0">False</span><span class="s2">,</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span>
+    <span class="s2">),</span>
+
+    <span class="s3">'nqueens'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'N Queens Puzzle'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s1">v</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">f'</span><span class="s5">{</span><span class="s1">v</span><span class="s5">} </span><span class="s3">Boards'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanPuzzles</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'nqueens'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s1">v</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span>
+            <span class="s2">) </span><span class="s0">for </span><span class="s1">v </span><span class="s0">in </span><span class="s3">'4567879'</span>
+        <span class="s2">},</span>
+        <span class="s1">is_two_player_game</span><span class="s2">=</span><span class="s0">False</span><span class="s2">,</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span>
+    <span class="s2">),</span>
+
+    <span class="s3">'nutictactoe'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Nu Tic-Tac-Toe'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'regular'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'5x4'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'nuttt'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">1740</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+
+    <span class="s3">'oddoreven'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Odd or Even'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'regular'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Regular'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'ooe'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">0</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span>
+    <span class="s2">),</span>
+    
+    <span class="s3">'othello'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Othello'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'regular'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Regular'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'othello'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">136</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">,</span>
+        <span class="s1">supports_win_by</span><span class="s2">=</span><span class="s0">True</span>
+    <span class="s2">),</span>
+    
+    <span class="s3">'pegsolitaire'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Peg Solitaire'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">= {</span>
+            <span class="s1">v</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s1">v</span><span class="s2">.</span><span class="s1">title</span><span class="s2">(),</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanPuzzles</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'pegsolitaire'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s1">v</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span>
+            <span class="s2">) </span><span class="s0">for </span><span class="s1">v </span><span class="s0">in </span><span class="s2">(</span><span class="s3">'triangle'</span><span class="s2">, </span><span class="s3">'star'</span><span class="s2">, </span><span class="s3">'trapezoid'</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">is_two_player_game</span><span class="s2">=</span><span class="s0">False</span><span class="s2">,</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span>
+    <span class="s2">),</span>
+
+    <span class="s3">'ponghauki'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">&quot;Pong Hau K'i&quot;</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'regular'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Regular'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'horse'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">1</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+    
+    <span class="s3">'quarto'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Quarto'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'regular'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Regular'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'quarto'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">0</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+    
+    <span class="s3">'quickchess'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Quick Chess'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'regular'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Regular'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'quickchess'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">1</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+
+    <span class="s3">'quickcross'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(   </span>
+       <span class="s1">name</span><span class="s2">=</span><span class="s3">'Quick Cross'</span><span class="s2">,</span>
+       <span class="s1">variants</span><span class="s2">={</span>
+           <span class="s3">'regular'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+               <span class="s1">name</span><span class="s2">=</span><span class="s3">'Regular'</span><span class="s2">,</span>
+               <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+               <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'qx'</span><span class="s2">,</span>
+               <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">9</span><span class="s2">,</span>
+               <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">,</span>
+            <span class="s2">),</span>
+       <span class="s2">}, </span>
+       <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+
+    <span class="s3">'quixo' </span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name </span><span class="s2">= </span><span class="s3">'Quixo' </span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'5x5'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name </span><span class="s2">= </span><span class="s3">'5x5'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanOne</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id </span><span class="s2">= </span><span class="s3">'quixo' </span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id </span><span class="s2">= </span><span class="s3">'0' </span><span class="s2">,</span>
+                <span class="s1">gui </span><span class="s2">= </span><span class="s3">'v3'</span><span class="s2">,</span>
+            <span class="s2">),</span>
+            <span class="s3">'4x4'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name </span><span class="s2">= </span><span class="s3">'4x4'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanOne</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id </span><span class="s2">= </span><span class="s3">'quixo' </span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id </span><span class="s2">= </span><span class="s3">'1' </span><span class="s2">,</span>
+                <span class="s1">gui </span><span class="s2">= </span><span class="s3">'v3'</span><span class="s2">,</span>
+            <span class="s2">),</span>
+            <span class="s3">'3x3'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name </span><span class="s2">= </span><span class="s3">'3x3'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanOne</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id </span><span class="s2">= </span><span class="s3">'quixo' </span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id </span><span class="s2">= </span><span class="s3">'2' </span><span class="s2">,</span>
+                <span class="s1">gui </span><span class="s2">= </span><span class="s3">'v3'</span><span class="s2">,</span>
+            <span class="s2">),</span>
+        <span class="s2">},</span>
+    <span class="s1">gui </span><span class="s2">= </span><span class="s3">'v3'</span><span class="s2">),</span>
+    
+    <span class="s3">'rubikscube'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">&quot;Rubik's Cube&quot;</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'2x2x2'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'2x2x2'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanPuzzles</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'rubikscube'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s3">'2x2x2'</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v2'</span>
+            <span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">is_two_player_game</span><span class="s2">=</span><span class="s0">False</span><span class="s2">,</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v2'</span>
+    <span class="s2">),</span>
+
+    <span class="s3">'rubiksmagic'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">&quot;Rubik's Magic&quot;</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'regular'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Regular'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'rubiksmagic'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">0</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">)</span>
+            <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+    
+    <span class="s3">'rushhour'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">&quot;Rush Hour&quot;</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s1">v</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s1">v</span><span class="s2">.</span><span class="s1">title</span><span class="s2">(),</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanPuzzles</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'rushhour'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s1">v</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span>
+            <span class="s2">) </span><span class="s0">for </span><span class="s1">v </span><span class="s0">in </span><span class="s2">(</span><span class="s3">'basic'</span><span class="s2">, </span><span class="s3">'easy'</span><span class="s2">, </span><span class="s3">'medium'</span><span class="s2">, </span><span class="s3">'hard'</span><span class="s2">, </span><span class="s3">'expert'</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">is_two_player_game</span><span class="s2">=</span><span class="s0">False</span><span class="s2">,</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span>
+    <span class="s2">),</span>
+
+    <span class="s3">'sim'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Sim'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'regular'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Regular'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'sim'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">1</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+    
+    <span class="s3">'shifttactoe'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Shift Tac Toe'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'default'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Regular'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'stt'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">2</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v2'</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v2'</span><span class="s2">),</span>
+    
+    <span class="s3">'slide5'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">&quot;Slide-5&quot;</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'regular'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">&quot;[Standard] Creating a 5-in-a-Row for both players counts as a win for the player who did so.&quot;</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'slide5'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">0</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span>
+            <span class="s2">),</span>
+            <span class="s3">'ties'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">&quot;Creating a 5-in-a-Row for both players results in the game ending in a tie.&quot;</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'slide5'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">1</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span>
+            <span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+
+    <span class="s3">'snake'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Snake'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'regular'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Regular'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'snake'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">1</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">)</span>
+            <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+
+    <span class="s3">'squaredance'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Square Dance'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'regular'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Regular'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'squaredance'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">7</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">)</span>
+            <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+    
+    <span class="s3">'tactix'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'TacTix'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'regular'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Regular'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'tactix'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">1</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">)</span>
+            <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span>
+        <span class="s2">),</span>
+    
+    <span class="s3">'tantfant'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'TantFant'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'regular'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Regular'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'tantfant'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">1</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">)</span>
+            <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span>
+        <span class="s2">),</span>
+
+    <span class="s3">'teeko' </span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name </span><span class="s2">= </span><span class="s3">'Teeko' </span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'standard'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name </span><span class="s2">= </span><span class="s3">'Standard'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanOne</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id </span><span class="s2">= </span><span class="s3">'teeko'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id </span><span class="s2">= </span><span class="s3">'0'</span><span class="s2">,</span>
+                <span class="s1">gui </span><span class="s2">= </span><span class="s3">'v3'</span><span class="s2">,</span>
+            <span class="s2">),</span>
+            <span class="s3">'advanced'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name </span><span class="s2">= </span><span class="s3">'Advanced'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanOne</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id </span><span class="s2">= </span><span class="s3">'teeko'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id </span><span class="s2">= </span><span class="s3">'1'</span><span class="s2">,</span>
+                <span class="s1">gui </span><span class="s2">= </span><span class="s3">'v3'</span><span class="s2">,</span>
+            <span class="s2">),</span>
+        <span class="s2">},</span>
+    <span class="s1">gui </span><span class="s2">= </span><span class="s3">'v3'</span><span class="s2">),</span>
+    
+    <span class="s3">'tictactoe'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Tic-Tac-Toe'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'regular'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Regular'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'ttt'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">3</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+            <span class="s3">'misere'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Misere'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'ttt'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">1</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+
+    <span class="s3">'tictactwo'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Tic-Tac-Two'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'regular'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Regular'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'tttwo'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">0</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+    
+    <span class="s3">'toadsandfrogspuzzle'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Toads and Frogs Puzzle'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s1">str</span><span class="s2">(</span><span class="s1">v</span><span class="s2">): </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">f'</span><span class="s5">{</span><span class="s1">v </span><span class="s2">&gt;&gt; </span><span class="s4">1</span><span class="s5">} </span><span class="s3">Frogs, </span><span class="s5">{</span><span class="s1">v </span><span class="s2">&gt;&gt; </span><span class="s4">1</span><span class="s5">} </span><span class="s3">Toads'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanPuzzles</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'toadsandfrogspuzzle'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s1">str</span><span class="s2">(</span><span class="s1">v</span><span class="s2">),</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span>
+            <span class="s2">) </span><span class="s0">for </span><span class="s1">v </span><span class="s0">in </span><span class="s2">(</span><span class="s4">4</span><span class="s2">, </span><span class="s4">6</span><span class="s2">, </span><span class="s4">8</span><span class="s2">, </span><span class="s4">10</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">is_two_player_game</span><span class="s2">=</span><span class="s0">False</span><span class="s2">,</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span>
+    <span class="s2">),</span>
+    
+    <span class="s3">'tootandotto'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Toot and Otto'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'4'</span><span class="s2">: </span><span class="s1">TootAndOtto</span><span class="s2">(</span><span class="s4">4</span><span class="s2">),</span>
+            <span class="s3">'5'</span><span class="s2">: </span><span class="s1">TootAndOtto</span><span class="s2">(</span><span class="s4">5</span><span class="s2">),</span>
+            <span class="s3">'6'</span><span class="s2">: </span><span class="s1">TootAndOtto</span><span class="s2">(</span><span class="s4">6</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+    
+    <span class="s3">'topitop'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">&quot;Topitop&quot;</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'regular'</span><span class="s2">:  </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">&quot;Standard Topitop&quot;</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'topitop'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">0</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span>
+            <span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+    
+    <span class="s3">'topspin'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">&quot;Top Spin&quot;</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">= {</span>
+            <span class="s3">&quot;6_2&quot;</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">&quot;6 Disks&quot;</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanPuzzles</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'topspin'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s3">&quot;6_2&quot;</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span>
+            <span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">is_two_player_game</span><span class="s2">=</span><span class="s0">False</span>
+    <span class="s2">),</span>
+
+    <span class="s3">'tsoroyematatu'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Tsoro Yematatu'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'regular'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Regular'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'tsoroyematatu'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">0</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span>
+    <span class="s2">),</span>
+
+    <span class="s3">'winkers' </span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name </span><span class="s2">= </span><span class="s3">'Winkers' </span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'simplified'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name </span><span class="s2">= </span><span class="s3">&quot;Win if you can't move&quot;</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanOne</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id </span><span class="s2">= </span><span class="s3">'winkers'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id </span><span class="s2">= </span><span class="s3">'0'</span><span class="s2">,</span>
+                <span class="s1">gui </span><span class="s2">= </span><span class="s3">'v3'</span><span class="s2">,</span>
+            <span class="s2">),</span>
+        <span class="s2">},</span>
+    <span class="s1">gui </span><span class="s2">= </span><span class="s3">'v3'</span><span class="s2">),</span>
+    
+    <span class="s3">'y'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Y'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'dim4'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Dimension 4'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'gameofy'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">0</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+            <span class="s3">'dim5'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Dimension 5'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'gameofy'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">1</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+            <span class="s3">'dim4-misere'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Dimension 4 Misère'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'gameofy'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">4</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+            <span class="s3">'dim5-misere'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Dimension 5 Misère'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'gameofy'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">5</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+
+    <span class="s3">'yote'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'Yoté'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'3x3'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'3x3'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'yote'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">0</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v2'</span><span class="s2">),</span>
+            <span class="s3">'3x4'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'3x4'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'yote'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">1</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v2'</span><span class="s2">),</span>
+            <span class="s3">'4x4'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'4x4'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'yote'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">2</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v2'</span><span class="s2">),</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v2'</span><span class="s2">),</span>
+        
+        <span class="s3">'4squaretictactoe'</span><span class="s2">: </span><span class="s1">Game</span><span class="s2">(</span>
+        <span class="s1">name</span><span class="s2">=</span><span class="s3">'4-Square-Tic-Tac-Toe'</span><span class="s2">,</span>
+        <span class="s1">variants</span><span class="s2">={</span>
+            <span class="s3">'regular'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Regular'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'ttt4'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">3</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+            <span class="s3">'misere'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Misere'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'ttt4'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">1</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+            <span class="s3">'diamond'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Diamond'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'ttt4'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">4</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">),</span>
+            <span class="s3">'diamond_misere'</span><span class="s2">: </span><span class="s1">Variant</span><span class="s2">(</span>
+                <span class="s1">name</span><span class="s2">=</span><span class="s3">'Diamond Misere'</span><span class="s2">,</span>
+                <span class="s1">data_provider</span><span class="s2">=</span><span class="s1">GamesmanClassic</span><span class="s2">,</span>
+                <span class="s1">data_provider_game_id</span><span class="s2">=</span><span class="s3">'ttt4'</span><span class="s2">,</span>
+                <span class="s1">data_provider_variant_id</span><span class="s2">=</span><span class="s4">2</span><span class="s2">,</span>
+                <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">)</span>
+        <span class="s2">},</span>
+        <span class="s1">gui</span><span class="s2">=</span><span class="s3">'v3'</span><span class="s2">)</span>
+<span class="s2">}</span>
+</pre>
+</body>
+</html>
