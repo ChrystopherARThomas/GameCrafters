@@ -4,6 +4,7 @@ from puzzlesolver.puzzles import Puzzle
 from puzzlesolver.solvers import GeneralSolver
 from puzzlesolver.players import TUI
 
+
 class Squirrels:
     id = "squirrels"
     variants = ['basic','medium', 'hard']
@@ -43,7 +44,7 @@ class Squirrels:
         if self.pos is None:
             #/Users/User/Desktop/SquirrelsGoNuts/assets/squirrelsgonuts/starter
             #assets/squirrelsgonuts/starter
-            variant_file = f"/Users/User/Desktop/SquirrelsGoNuts/assets/squirrelsgonuts/{variant_id}.txt"
+            variant_file = f"/Users/chrystopherthomas/Downloads/GameCrafters/GamesmanPuzzles/SquirrelsGoNuts/assets/squirrelsgonuts/{variant_id}.txt"
             if puzzle_id is None:
                 # Search the database for a random puzzle with the given difficulty level.
                 #variant_ranges = {"basic": 4943, "medium": 5000, "hard": 4043}
@@ -66,6 +67,8 @@ class Squirrels:
                         self.hole_matching[i] = piece
                         #print(self.hole_matching)
                 if len(piece) >= 7:
+                    print(piece.split("_"))
+
                     type, type_index, relation, orientation = piece.split("_")
                     if type == "N":
                         if relation == "O":
@@ -73,6 +76,7 @@ class Squirrels:
                         if type_index not in self.squirrels_list:
                             self.squirrels_list[type_index] = []
                         self.squirrels_list[type_index].append(piece)
+
     def __hash__(self):
         """ Return a hash value of your position
         SQUIRRELS GO NUTS:
@@ -229,7 +233,7 @@ class Squirrels:
 #print(setter.generateMoves("bi"))
 #print(setter.doMove(['M_5_4_N_1_O_0', 'M_6_5_N_1_X_1']).pos)
 
-setter = Squirrels("starter")
+setter = Squirrels("basic")
 #setter.printPuzzle()
 setter_move = setter.generateMoves("bi")
 print(setter_move)
